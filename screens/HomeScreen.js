@@ -8,6 +8,9 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Picker,
+  TextInput,
+  DatePickerIOS
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
@@ -19,40 +22,20 @@ export default function HomeScreen() {
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
         <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
-        </View>
-
-        <View style={styles.getStartedContainer}>
-          <DevelopmentModeNotice />
-
-          <Text style={styles.getStartedText}>Get started by opening</Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
+          <Text style={styles.titleText}> Welcome to FlightPricer!</Text>
+          <Text> Quickly find average flight prices</Text>
+          <Text> Depart from:</Text>
+          <TextInput value={'LHR'
+        }></TextInput>
+          <Text> Arrive In:</Text>
+          <TextInput value={'CMH'
+          }></TextInput>
+          
           </View>
-
-          <Text style={styles.getStartedText}>
-            Change this text and your app will automatically reload.
-          </Text>
-        </View>
-
-        <View style={styles.helpContainer}>
-          <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>
-              Help, it didn’t automatically reload!
-            </Text>
-          </TouchableOpacity>
-        </View>
       </ScrollView>
-
+    <View>    
+  
+    </View>
       <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>
           This is a tab bar. You can edit it in:
@@ -125,7 +108,7 @@ const styles = StyleSheet.create({
   },
   welcomeContainer: {
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 50,
     marginBottom: 20,
   },
   welcomeImage: {
@@ -141,6 +124,10 @@ const styles = StyleSheet.create({
   },
   homeScreenFilename: {
     marginVertical: 7,
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: 'bold',
   },
   codeHighlightText: {
     color: 'rgba(96,100,109, 0.8)',
